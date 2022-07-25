@@ -1,11 +1,11 @@
 const questions = [
 	{
-		question: "Какой язык работает в браузере?",
+		question: "What language works in the browser?",
 		answers: ["Java", "C", "Python", "JavaScript"],
 		correct: 4,
 	},
 	{
-		question: "Что означает CSS?",
+		question: "What does it mean CSS?",
 		answers: [
 			"Central Style Sheets",
 			"Cascading Style Sheets",
@@ -15,7 +15,7 @@ const questions = [
 		correct: 2,
 	},
 	{
-		question: "Что означает HTML?",
+		question: "What does it mean HTML?",
 		answers: [
 			"Hypertext Markup Language",
 			"Hypertext Markdown Language",
@@ -25,40 +25,39 @@ const questions = [
 		correct: 1,
 	},
 	{
-		question: "В каком году был создан JavaScript?",
+		question: "What year was it created JavaScript?",
 		answers: ["1996", "1995", "1994", "все ответы неверные"],
 		correct: 2,
 	},
 ];
 
-// Находим элементы
+// Found elements
 const headerContainer = document.querySelector('#header');
 const listContainer = document.querySelector('#list');
 const submitBtn = document.querySelector('#submit');
 
-// Переменные опроса
+// Quiz variables
 let score = 0;
 let questionIndex = 0;
 
-//Вызов функции очистки страницы и генерации вопроса
+// Calling the function to clear the page and generate a question
 clearPage();
 showQuestions();
 submitBtn.onclick = checkAnswer;
 
-// Очищаем html
+// Cleaning up HTMl
 function clearPage(){
 	headerContainer.innerHTML = '';
 	listContainer.innerHTML = '';
 }
 
-// Рендер вопроса 
+// Question render 
 function showQuestions() {
 	const headerTemplate = `<h2 class="title">%title%</h2>`;
 	headerContainer.innerHTML = headerTemplate.replace('%title%', questions[questionIndex]['question']);
 
 	let answerNumber = 1;
 	for (answerText of questions[questionIndex]['answers']){
-		
 		const questionTemplate = 
 		`<li>
 			<label>
@@ -76,6 +75,7 @@ function showQuestions() {
 	}
 }
 
+// Check question
 function checkAnswer() {
 	const checkedRadio = listContainer.querySelector('input[type="radio"]:checked');
 	const userAnswer = parseInt(checkedRadio.value);
@@ -84,6 +84,7 @@ function checkAnswer() {
 		score++;
 	}
 
+	// Last or no question in the quiz
 	if(questionIndex !== questions.length - 1){
 		questionIndex++;
 		clearPage();
@@ -94,13 +95,14 @@ function checkAnswer() {
 		showResults();
 	}
 
-	// Если не выбран
+	// If doesn't check
 	if (!checkedRadio) {
 		submitBtn.blur();
 		return;
 	};
 }
 
+// Show results
 function showResults(){
 	const resultsTemplate = `
 		<h2 class="title">%title%</h2>
@@ -110,7 +112,7 @@ function showResults(){
 
 	let title, message;
 
-	//Варианты ответов
+	// Answer options
 	if(score === questions.length){
 		title = 'Поздравляю!';
 		message = 'Вы ответили верно на все вопросы!';
@@ -122,10 +124,10 @@ function showResults(){
 		message = 'Пока меньше половины правильных ответов!';
 	}
 
-	// Результаты
+	// Results
 	let result = `${score} из ${questions.length}`;
 
-	// Финальный ответ
+	// Final answer
 	const finalMessage = resultsTemplate
 		.replace('%title%', title)
 		.replace('%message%', message)
@@ -133,7 +135,7 @@ function showResults(){
 
 	headerContainer.innerHTML = finalMessage;
 
-	// Замена кнопки
+	// Button replacement
 	submitBtn.blur();
 	submitBtn.innerHTML = 'Начать занаво';
 	submitBtn.onclick = () =>{history.go()};
