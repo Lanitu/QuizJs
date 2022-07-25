@@ -114,14 +114,14 @@ function showResults(){
 
 	// Answer options
 	if(score === questions.length){
-		title = 'Поздравляю!';
-		message = 'Вы ответили верно на все вопросы!';
+		title = 'Congratulations!';
+		message = 'You answered all questions correctly!';
 	}else if((score * 100) / questions.length >= 50 ){
-		title = 'Не плохой результат!';
-		message = 'Вы дали более половины правильных ответов!';
+		title = 'Not a bad result!';
+		message = 'You gave more than half of the correct answers!';
 	}else{
-		title = 'Стоит постараться(';
-		message = 'Пока меньше половины правильных ответов!';
+		title = 'Need to get more knowledge and try more(';
+		message = 'So far, less than half of the correct answers!';
 	}
 
 	// Results
