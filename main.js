@@ -26,7 +26,7 @@ const questions = [
 	},
 	{
 		question: "What year was it created JavaScript?",
-		answers: ["1996", "1995", "1994", "все ответы неверные"],
+		answers: ["1996", "1995", "1994", "All answers doesn't correct"],
 		correct: 2,
 	},
 ];
@@ -137,6 +137,6 @@ function showResults(){
 
 	// Button replacement
 	submitBtn.blur();
-	submitBtn.innerHTML = 'Начать занаво';
+	submitBtn.innerHTML = 'Restart';
 	submitBtn.onclick = () =>{history.go()};
 }
