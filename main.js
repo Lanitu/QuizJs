@@ -1,25 +1,21 @@
 const questions = [
 	{
-		question: "Давайте начнём с того, какая у Вас цель?",
-		answers: [
-			"Нужен чисто сайт или Лендинг", 
-			"Неважно что, нужны заявки и увеличение продаж", 
-			"Хотите маркетинговую упаковку", 
-			"Интересует таргет и продвижение"
-		],
+		question: "Какой язык работает в браузере?",
+		answers: ["Java", "C", "Python", "JavaScript"],
 		correct: 4,
 	},
 	{
-		question: "Какого рода у Вас бизнес, чтобы понимать какое решение вам нужно? ?",
+		question: "Что означает CSS?",
 		answers: [
-			"Услуги ",
-			"Продажа товаров",
-			"Оба варианта ",
+			"Central Style Sheets",
+			"Cascading Style Sheets",
+			"Cascading Simple Sheets",
+			"Cars SUVs Sailboats",
 		],
 		correct: 2,
 	},
 	{
-		question: "Решите ребус и получите бонус (квиз сайт стоимостью 150$)",
+		question: "Что означает HTML?",
 		answers: [
 			"Hypertext Markup Language",
 			"Hypertext Markdown Language",
@@ -27,5 +23,10 @@ const questions = [
 			"Helicopters Terminals Motorboats Lamborginis",
 		],
 		correct: 1,
+	},
+	{
+		question: "В каком году был создан JavaScript?",
+		answers: ["1996", "1995", "1994", "все ответы неверные"],
+		correct: 2,
 	},
 ];
